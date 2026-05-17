@@ -7,354 +7,177 @@
 
 <style>
 *{margin:0;padding:0;box-sizing:border-box;font-family:Arial,Helvetica,sans-serif}
-body{background:#f5f8fc;color:#222}
 html{scroll-behavior:smooth}
-
-.header{
-  background:#fff;
-  padding:15px 7%;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  box-shadow:0 2px 10px rgba(0,0,0,.08);
-  position:sticky;
-  top:0;
-  z-index:999;
-}
-
+body{background:#f5f8fc;color:#222}
+.header{background:#fff;padding:15px 7%;display:flex;justify-content:space-between;align-items:center;box-shadow:0 2px 10px #0002;position:sticky;top:0;z-index:999}
 .logo-box{display:flex;align-items:center;gap:14px}
 .logo-box img{width:70px;height:70px;object-fit:contain}
 .logo-box h2{color:#063b82;font-size:22px}
-
-nav a{
-  color:#063b82;
-  text-decoration:none;
-  margin:0 8px;
-  font-weight:bold;
-  cursor:pointer;
-}
-
+nav a{color:#063b82;text-decoration:none;margin:0 8px;font-weight:bold}
 nav a:hover{color:#e67e22}
-
-.submit-btn{
-  background:#e67e22;
-  color:white!important;
-  padding:10px 15px;
-  border-radius:5px;
-}
-
-.page{
-  display:none;
-  padding:60px 8%;
-  min-height:75vh;
-}
-
-.page.active{display:block}
-
-.hero{
-  background:linear-gradient(rgba(5,45,105,.88),rgba(5,45,105,.88));
-  color:white;
-  text-align:center;
-  padding:90px 8%;
-}
-
+.submit-btn{background:#e67e22;color:#fff!important;padding:10px 15px;border-radius:5px}
+.hero{background:linear-gradient(#052d69e6,#052d69e6);color:white;text-align:center;padding:90px 8%}
 .hero h4{font-size:20px;margin-bottom:15px;color:#ffd36b}
 .hero h1{font-size:48px;line-height:1.25;margin-bottom:15px}
 .hero h2{font-size:30px;margin-bottom:18px}
 .hero p{font-size:21px;margin-bottom:25px}
-
-.btn{
-  display:inline-block;
-  background:#e67e22;
-  color:white;
-  text-decoration:none;
-  padding:13px 25px;
-  border-radius:5px;
-  font-weight:bold;
-  margin:8px;
-  cursor:pointer;
-}
-
+.btn{display:inline-block;background:#e67e22;color:white;text-decoration:none;padding:13px 25px;border-radius:5px;font-weight:bold;margin:8px}
 .btn-blue{background:#0d6efd}
-
-.info{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-  gap:20px;
-  margin-top:35px;
-}
-
-.info-card{
-  background:white;
-  padding:25px;
-  text-align:center;
-  border-radius:10px;
-  box-shadow:0 8px 25px rgba(0,0,0,.12);
-}
-
+section{padding:60px 8%}
+.title{text-align:center;color:#063b82;font-size:34px;margin-bottom:30px}
+.box{max-width:1000px;margin:auto;background:white;padding:35px;border-radius:10px;box-shadow:0 5px 18px #0002;line-height:1.8;font-size:18px}
+.box ul{list-style:none}
+.box li{margin:12px 0;padding-left:28px;position:relative}
+.box li:before{content:"✔";position:absolute;left:0;color:#e67e22;font-weight:bold}
+.info{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:20px;margin-top:35px}
+.info-card{background:white;padding:25px;text-align:center;border-radius:10px;box-shadow:0 8px 25px #0002}
 .info-card h3{color:#063b82;margin-bottom:8px}
 .info-card p{font-weight:bold}
-
-.title{
-  text-align:center;
-  color:#063b82;
-  font-size:34px;
-  margin-bottom:30px;
-}
-
-.box{
-  max-width:1000px;
-  margin:auto;
-  background:white;
-  padding:35px;
-  border-radius:10px;
-  box-shadow:0 5px 18px rgba(0,0,0,.10);
-  line-height:1.8;
-  font-size:18px;
-}
-
-.box ul{list-style:none}
-.box li{
-  margin:12px 0;
-  padding-left:28px;
-  position:relative;
-}
-
-.box li:before{
-  content:"✔";
-  position:absolute;
-  left:0;
-  color:#e67e22;
-  font-weight:bold;
-}
-
-.track-grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
-  gap:20px;
-}
-
-.track-card{
-  background:white;
-  padding:25px;
-  border-radius:10px;
-  box-shadow:0 4px 15px rgba(0,0,0,.08);
-}
-
+.track-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:20px}
+.track-card{background:white;padding:25px;border-radius:10px;box-shadow:0 4px 15px #0002}
 .track-card h3{color:#063b82;margin-bottom:15px}
 .track-card ul{list-style:none}
-.track-card li{
-  margin:9px 0;
-  padding-left:24px;
-  position:relative;
-}
-
-.track-card li:before{
-  content:"✓";
-  position:absolute;
-  left:0;
-  color:#e67e22;
-  font-weight:bold;
-}
-
-.date-table{
-  max-width:850px;
-  margin:auto;
-  background:white;
-  border-radius:10px;
-  overflow:hidden;
-  box-shadow:0 5px 18px rgba(0,0,0,.10);
-}
-
-.date-row{
-  display:flex;
-  justify-content:space-between;
-  padding:18px 25px;
-  border-bottom:1px solid #ddd;
-  font-size:18px;
-}
-
+.track-card li{margin:9px 0;padding-left:24px;position:relative}
+.track-card li:before{content:"✓";position:absolute;left:0;color:#e67e22;font-weight:bold}
+.date-table{max-width:850px;margin:auto;background:white;border-radius:10px;overflow:hidden;box-shadow:0 5px 18px #0002}
+.date-row{display:flex;justify-content:space-between;padding:18px 25px;border-bottom:1px solid #ddd;font-size:18px}
 .date-row strong{color:#063b82}
-
-footer{
-  background:#022b5c;
-  color:white;
-  padding:30px 8%;
-  text-align:center;
-}
-
+footer{background:#022b5c;color:white;padding:30px 8%;text-align:center}
 footer p{margin:5px 0}
-
 @media(max-width:768px){
-  .header{flex-direction:column;text-align:center}
-  nav{margin-top:12px}
-  nav a{display:inline-block;margin:6px}
-  .hero h1{font-size:32px}
-  .hero h2{font-size:23px}
-  .date-row{flex-direction:column;gap:6px}
+.header{flex-direction:column;text-align:center}
+nav{margin-top:12px}
+nav a{display:inline-block;margin:6px}
+.hero h1{font-size:32px}
+.hero h2{font-size:23px}
+.date-row{flex-direction:column;gap:6px}
 }
 </style>
 </head>
 
 <body>
 
-<div class="header">
+<header class="header">
   <div class="logo-box">
     <img src="logo.png" alt="Avaaya Infotech Logo">
     <h2>Avaaya Infotech Private Limited</h2>
   </div>
 
   <nav>
-    <a onclick="showPage('home')">Home</a>
-    <a onclick="showPage('about')">About</a>
-    <a onclick="showPage('tracks')">Tracks</a>
-    <a onclick="showPage('publication')">Publication</a>
-    <a onclick="showPage('registration')">Registration</a>
-    <a onclick="showPage('submission')">Submission</a>
-    <a onclick="showPage('contact')">Contact</a>
-    <a onclick="showPage('submission')" class="submit-btn">Submit Paper</a>
+    <a href="#home">Home</a>
+    <a href="#about">About</a>
+    <a href="#tracks">Tracks</a>
+    <a href="#publication">Publication</a>
+    <a href="#registration">Registration</a>
+    <a href="#submission">Submission</a>
+    <a href="#contact">Contact</a>
+    <a href="#submission" class="submit-btn">Submit Paper</a>
   </nav>
-</div>
+</header>
 
-<!-- HOME -->
-<section id="home" class="page active">
-  <div class="hero">
-    <h4>CALL FOR PAPERS - SUBMIT NOW!</h4>
-    <h1>International e-Conference on</h1>
-    <h1>Interdisciplinary Research, Education and Advanced Collaborative Technologies</h1>
-    <h2>(INTREACT 2026)</h2>
-    <p>A Global Virtual Platform for Researchers & Innovators</p>
+<section id="home" class="hero">
+  <h4>CALL FOR PAPERS - SUBMIT NOW!</h4>
+  <h1>International e-Conference on</h1>
+  <h1>Interdisciplinary Research, Education and Advanced Collaborative Technologies</h1>
+  <h2>(INTREACT 2026)</h2>
+  <p>A Global Virtual Platform for Researchers & Innovators</p>
+  <a href="#submission" class="btn">Submit Your Paper</a>
+  <a href="#about" class="btn btn-blue">Call for Paper</a>
+</section>
 
-    <a onclick="showPage('submission')" class="btn">Submit Your Paper</a>
-    <a onclick="showPage('about')" class="btn btn-blue">Call for Paper</a>
-  </div>
-
+<section>
   <div class="info">
-    <div class="info-card">
-      <h3>Conference Date</h3>
-      <p>30th & 31st August 2026</p>
-    </div>
-
-    <div class="info-card">
-      <h3>Mode</h3>
-      <p>Online / Virtual</p>
-    </div>
-
-    <div class="info-card">
-      <h3>Registration Fee</h3>
-      <p>₹999 Only</p>
-    </div>
-
-    <div class="info-card">
-      <h3>Certificate</h3>
-      <p>Provided to All Attendees</p>
-    </div>
+    <div class="info-card"><h3>Conference Date</h3><p>30th & 31st August 2026</p></div>
+    <div class="info-card"><h3>Mode</h3><p>Online / Virtual</p></div>
+    <div class="info-card"><h3>Registration Fee</h3><p>₹999 Only</p></div>
+    <div class="info-card"><h3>Certificate</h3><p>Provided to All Attendees</p></div>
   </div>
 </section>
 
-<!-- ABOUT -->
-<section id="about" class="page">
+<section id="about">
   <h2 class="title">About INTREACT 2026</h2>
-
   <div class="box">
     <p>
       The International e-Conference on Interdisciplinary Research, Education and Advanced Collaborative Technologies
       (INTREACT 2026) is organized by Avaaya Infotech Private Limited, a MSME-Udyam and Startup India registered
       research services company.
     </p>
-
+    <br>
     <p>
-      INTREACT 2026 aims to bring together global researchers, academicians, educators, innovators, professionals
-      and students for two days of knowledge sharing, research presentation and collaborative exploration.
-    </p>
-
-    <p>
-      Researchers are invited to submit original research papers in interdisciplinary areas including artificial
-      intelligence, healthcare, green technologies, education, management, science, social sciences and advanced
-      collaborative technologies.
+      INTREACT 2026 aims to bring together global researchers, academicians, educators, innovators, professionals and
+      students for two days of knowledge sharing, research presentation and collaborative exploration.
     </p>
   </div>
 </section>
 
-<!-- TRACKS -->
-<section id="tracks" class="page">
+<section id="tracks">
   <h2 class="title">Conference Themes & Technical Tracks</h2>
 
   <div class="track-grid">
-
     <div class="track-card">
-      <h3>🌱 Track 1: Sustainable Technologies</h3>
+      <h3>🌱 Sustainable Technologies</h3>
       <ul>
         <li>Renewable and Green Energy Systems</li>
-        <li>Sustainable Engineering and Clean Technologies</li>
-        <li>Environmental Monitoring and Smart Ecosystems</li>
-        <li>Climate Change Mitigation Technologies</li>
-        <li>Smart Grids and Sustainable Power Systems</li>
+        <li>Sustainable Engineering</li>
+        <li>Climate Change Mitigation</li>
+        <li>Smart Grids</li>
       </ul>
     </div>
 
     <div class="track-card">
-      <h3>🤖 Track 2: Artificial Intelligence & Emerging Trends</h3>
+      <h3>🤖 Artificial Intelligence</h3>
       <ul>
-        <li>Artificial Intelligence and Data Science</li>
-        <li>Machine Learning and Deep Learning</li>
-        <li>Generative AI and Large Language Models</li>
-        <li>Responsible and Explainable AI</li>
-        <li>AI for Smart Cities and Governance</li>
+        <li>AI and Data Science</li>
+        <li>Machine Learning</li>
+        <li>Deep Learning</li>
+        <li>Generative AI</li>
       </ul>
     </div>
 
     <div class="track-card">
-      <h3>💻 Track 3: Computer Science & IT</h3>
+      <h3>💻 Computer Science & IT</h3>
       <ul>
-        <li>Cloud Computing and Virtualization</li>
-        <li>Cybersecurity and Digital Forensics</li>
-        <li>Internet of Things and Distributed Systems</li>
-        <li>Big Data Analytics</li>
-        <li>Blockchain Technologies</li>
+        <li>Cloud Computing</li>
+        <li>Cybersecurity</li>
+        <li>IoT</li>
+        <li>Blockchain</li>
       </ul>
     </div>
 
     <div class="track-card">
-      <h3>📊 Track 4: Management and Commerce</h3>
+      <h3>📊 Management & Commerce</h3>
       <ul>
-        <li>Digital Business Transformation</li>
-        <li>E-Commerce and Digital Marketing</li>
-        <li>Entrepreneurship and Startup Ecosystems</li>
+        <li>Digital Business</li>
+        <li>E-Commerce</li>
+        <li>Entrepreneurship</li>
         <li>Business Intelligence</li>
-        <li>Sustainable Business Practices</li>
       </ul>
     </div>
 
     <div class="track-card">
-      <h3>🔬 Track 5: Science and Mathematics</h3>
+      <h3>🔬 Science & Mathematics</h3>
       <ul>
         <li>Applied Mathematics</li>
-        <li>Mathematical Modeling and Simulation</li>
-        <li>Physics, Chemistry and Biological Sciences</li>
-        <li>Statistics and Probability</li>
-        <li>Scientific Computing Applications</li>
+        <li>Physics</li>
+        <li>Chemistry</li>
+        <li>Biological Sciences</li>
       </ul>
     </div>
 
     <div class="track-card">
-      <h3>🎓 Track 6: Education and Social Science</h3>
+      <h3>🎓 Education & Social Science</h3>
       <ul>
-        <li>EdTech and Digital Pedagogy</li>
-        <li>Hybrid Learning and Inclusive Education</li>
+        <li>EdTech</li>
+        <li>Hybrid Learning</li>
         <li>AI in Education</li>
-        <li>Public Policy and Governance</li>
-        <li>Psychology and Behavioral Sciences</li>
+        <li>Public Policy</li>
       </ul>
     </div>
-
   </div>
 </section>
 
-<!-- PUBLICATION -->
-<section id="publication" class="page">
+<section id="publication">
   <h2 class="title">Publication Opportunities</h2>
-
   <div class="box">
     <ul>
       <li>All accepted papers will be published in a Peer Reviewed Journal.</li>
@@ -363,56 +186,29 @@ footer p{margin:5px 0}
       <li>Scopus publication charges will be applicable as per journal norms.</li>
       <li>Peer review process will be followed as per journal policy and norms.</li>
       <li>Best Paper Awards will be given for all tracks.</li>
-      <li>Certificate will be provided to all attendees and participants.</li>
     </ul>
   </div>
 </section>
 
-<!-- REGISTRATION -->
-<section id="registration" class="page">
+<section id="registration">
   <h2 class="title">Registration Details</h2>
-
   <div class="date-table">
-    <div class="date-row">
-      <strong>Conference Registration Fee</strong>
-      <span>₹999 Only</span>
-    </div>
-
-    <div class="date-row">
-      <strong>Certificate</strong>
-      <span>Provided to all attendees</span>
-    </div>
-
-    <div class="date-row">
-      <strong>Conference Mode</strong>
-      <span>Online / Virtual</span>
-    </div>
-
-    <div class="date-row">
-      <strong>Scopus Publication Charges</strong>
-      <span>Applicable as per journal norms</span>
-    </div>
-
-    <div class="date-row">
-      <strong>Peer Review</strong>
-      <span>As per journal policy and norms</span>
-    </div>
+    <div class="date-row"><strong>Conference Registration Fee</strong><span>₹999 Only</span></div>
+    <div class="date-row"><strong>Certificate</strong><span>Provided to all attendees</span></div>
+    <div class="date-row"><strong>Conference Mode</strong><span>Online / Virtual</span></div>
+    <div class="date-row"><strong>Scopus Publication Charges</strong><span>Applicable as per journal norms</span></div>
+    <div class="date-row"><strong>Peer Review</strong><span>As per journal policy and norms</span></div>
   </div>
 </section>
 
-<!-- SUBMISSION -->
-<section id="submission" class="page">
+<section id="submission">
   <h2 class="title">Paper Submission</h2>
-
   <div class="box">
     <p><strong>Submit your paper through EasyChair:</strong></p>
     <br>
-
     <a href="#" class="btn">Submit Paper</a>
     <a href="mailto:director@avaayainfotech.com" class="btn btn-blue">Email Us</a>
-
     <br><br>
-
     <p><strong>Email:</strong> director@avaayainfotech.com</p>
     <p><strong>Last Date of Submission:</strong> 20th August 2026</p>
     <p><strong>Registration Fee:</strong> ₹999 only</p>
@@ -420,10 +216,8 @@ footer p{margin:5px 0}
   </div>
 </section>
 
-<!-- CONTACT -->
-<section id="contact" class="page">
+<section id="contact">
   <h2 class="title">Contact Us</h2>
-
   <div class="box">
     <p><strong>Organizer:</strong> Avaaya Infotech Private Limited</p>
     <p><strong>Email:</strong> director@avaayainfotech.com</p>
@@ -438,20 +232,6 @@ footer p{margin:5px 0}
   <p>International e-Conference on Interdisciplinary Research, Education and Advanced Collaborative Technologies</p>
   <p>© 2026 Avaaya Infotech Private Limited. All Rights Reserved.</p>
 </footer>
-
-<script>
-function showPage(pageId){
-  const pages = document.querySelectorAll('.page');
-  pages.forEach(page => page.classList.remove('active'));
-
-  document.getElementById(pageId).classList.add('active');
-
-  window.scrollTo({
-    top: 0,
-    behavior: 'smooth'
-  });
-}
-</script>
 
 </body>
 </html>
