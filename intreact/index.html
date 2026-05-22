@@ -240,6 +240,109 @@ nav a{display:inline-block;margin:6px}
   <p>International e-Conference on Interdisciplinary Research, Education and Advanced Collaborative Technologies</p>
   <p>© 2026 Avaaya Infotech Private Limited. All Rights Reserved.</p>
 </footer>
+<!-- POSTER POPUP START -->
 
+<div id="posterPopup" class="popup-overlay">
+
+  <div class="popup-box">
+
+    <span class="close-popup">&times;</span>
+
+    <img src="poster.png" alt="INTREACT 2026 Poster">
+
+    <a href="https://easychair.org/conferences/?conf=intreact2026"
+       target="_blank"
+       class="popup-btn">
+       Submit Paper
+    </a>
+
+  </div>
+
+</div>
+
+<style>
+
+.popup-overlay{
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  background:rgba(0,0,0,0.75);
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  z-index:99999;
+}
+
+.popup-box{
+  position:relative;
+  width:90%;
+  max-width:700px;
+  background:#fff;
+  padding:15px;
+  border-radius:12px;
+  text-align:center;
+  animation:popupShow .4s ease;
+}
+
+.popup-box img{
+  width:100%;
+  border-radius:10px;
+}
+
+.popup-btn{
+  display:inline-block;
+  margin-top:18px;
+  background:#e67e22;
+  color:#fff;
+  padding:14px 28px;
+  text-decoration:none;
+  border-radius:6px;
+  font-weight:bold;
+  font-size:18px;
+}
+
+.close-popup{
+  position:absolute;
+  top:8px;
+  right:15px;
+  font-size:34px;
+  cursor:pointer;
+  color:#000;
+  font-weight:bold;
+}
+
+@keyframes popupShow{
+  from{
+    transform:scale(.7);
+    opacity:0;
+  }
+  to{
+    transform:scale(1);
+    opacity:1;
+  }
+}
+
+</style>
+
+<script>
+
+const popup = document.getElementById("posterPopup");
+const closeBtn = document.querySelector(".close-popup");
+
+closeBtn.onclick = function(){
+  popup.style.display = "none";
+}
+
+window.onclick = function(e){
+  if(e.target == popup){
+    popup.style.display = "none";
+  }
+}
+
+</script>
+
+<!-- POSTER POPUP END -->
 </body>
 </html>
