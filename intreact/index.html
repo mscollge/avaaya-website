@@ -274,23 +274,24 @@ nav a{display:inline-block;margin:6px}
   align-items:center;
   z-index:99999;
 }
-
 .popup-box{
   position:relative;
   width:90%;
-  max-width:700px;
+  max-width:650px;
+  max-height:90vh;
   background:#fff;
-  padding:15px;
+  padding:12px;
   border-radius:12px;
   text-align:center;
-  animation:popupShow .4s ease;
+  overflow:auto;
 }
 
 .popup-box img{
   width:100%;
+  max-height:78vh;
+  object-fit:contain;
   border-radius:10px;
 }
-
 .popup-btn{
   display:inline-block;
   margin-top:18px;
