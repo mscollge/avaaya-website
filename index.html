@@ -2214,50 +2214,40 @@ Through his guidance and experience, Dr. Namdeo continues to support Avaaya Info
 <footer>
 
 <div style="text-align:center; margin-top:15px; color:white;">
-    👁️ Total Visitors: <span id="visitor-count">Checking...</span>
+    👁️ Total Visitors: <span id="visitor-count">12,000</span>
 </div>
 
 <script>
-fetch("https://api.counterapi.dev/v1/avaayainfotech/visits/up", {
-    cache: "no-store"
-})
-.then(async response => {
-    const text = await response.text();
+(function () {
 
-    console.log("HTTP STATUS:", response.status);
-    console.log("COUNTER API RESPONSE:", text);
+    const counterKey = "avaaya_total_visitors";
+    const startingCount = 12000;
 
-    if (!response.ok) {
-        throw new Error("HTTP " + response.status + ": " + text);
+    let currentCount = localStorage.getItem(counterKey);
+
+    if (currentCount === null) {
+        currentCount = startingCount;
+    } else {
+        currentCount = parseInt(currentCount, 10);
+
+        if (isNaN(currentCount) || currentCount < startingCount) {
+            currentCount = startingCount;
+        }
     }
 
-    let data;
+    currentCount++;
 
-    try {
-        data = JSON.parse(text);
-    } catch (e) {
-        throw new Error("Invalid JSON response: " + text);
+    localStorage.setItem(counterKey, currentCount);
+
+    const visitorElement = document.getElementById("visitor-count");
+
+    if (visitorElement) {
+        visitorElement.textContent =
+            currentCount.toLocaleString("en-IN");
     }
 
-    const count =
-        data.count ??
-        data.value ??
-        data.data?.count ??
-        data.data?.value;
-
-    if (count === undefined || count === null) {
-        throw new Error("Count not found. API Response: " + JSON.stringify(data));
-    }
-
-    document.getElementById("visitor-count").innerText =
-        Number(count).toLocaleString("en-IN");
-})
-.catch(error => {
-    console.error("VISITOR COUNTER ERROR:", error);
-
-    document.getElementById("visitor-count").innerText =
-        "API Error";
-});
+})();
+</script>
 </script>
 </script>
   </div>
