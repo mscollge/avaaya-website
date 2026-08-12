@@ -2214,49 +2214,51 @@ Through his guidance and experience, Dr. Namdeo continues to support Avaaya Info
 <footer>
 
 <div style="text-align:center; margin-top:15px; color:white;">
-    👁️ Total Visitors: <span id="visitor-count">Loading...</span>
+    👁️ Total Visitors: <span id="visitor-count">Checking...</span>
 </div>
 
 <script>
-(async function () {
-    const visitorElement = document.getElementById("visitor-count");
+fetch("https://api.counterapi.dev/v1/avaayainfotech/visits/up", {
+    cache: "no-store"
+})
+.then(async response => {
+    const text = await response.text();
+
+    console.log("HTTP STATUS:", response.status);
+    console.log("COUNTER API RESPONSE:", text);
+
+    if (!response.ok) {
+        throw new Error("HTTP " + response.status + ": " + text);
+    }
+
+    let data;
 
     try {
-        const response = await fetch(
-            "https://api.counterapi.dev/v1/avaayainfotech/visits/up",
-            {
-                method: "GET",
-                cache: "no-store"
-            }
-        );
-
-        if (!response.ok) {
-            throw new Error("Counter API Error: " + response.status);
-        }
-
-        const data = await response.json();
-
-        console.log("CounterAPI Response:", data);
-
-        // CounterAPI response से count निकालना
-        const count =
-            data.count ??
-            data.value ??
-            data.data?.count ??
-            data.data?.value;
-
-        if (count !== undefined && count !== null) {
-            visitorElement.textContent = Number(count).toLocaleString("en-IN");
-        } else {
-            throw new Error("Visitor count not found in API response");
-        }
-
-    } catch (error) {
-        console.error("Visitor Counter Error:", error);
-
-        visitorElement.textContent = "15001";
+        data = JSON.parse(text);
+    } catch (e) {
+        throw new Error("Invalid JSON response: " + text);
     }
-})();
+
+    const count =
+        data.count ??
+        data.value ??
+        data.data?.count ??
+        data.data?.value;
+
+    if (count === undefined || count === null) {
+        throw new Error("Count not found. API Response: " + JSON.stringify(data));
+    }
+
+    document.getElementById("visitor-count").innerText =
+        Number(count).toLocaleString("en-IN");
+})
+.catch(error => {
+    console.error("VISITOR COUNTER ERROR:", error);
+
+    document.getElementById("visitor-count").innerText =
+        "API Error";
+});
+</script>
 </script>
   </div>
 
