@@ -89,3 +89,36 @@ nav ul{display:block;text-align:center}
     max-width: 350px;
   }
 }
+/* AIPL logo size */
+.site-logo {
+  width: 280px !important;
+  height: auto !important;
+  max-width: 100%;
+  object-fit: contain;
+  display: block;
+}
+
+/* Mobile logo size */
+@media (max-width: 768px) {
+  .site-logo {
+    width: 200px !important;
+    height: auto !important;
+    margin: 0 auto;
+  }
+}/* AIPL logo size */
+.site-logo {
+  width: 280px !important;
+  height: auto !important;
+  max-width: 100%;
+  object-fit: contain;
+  display: block;
+}
+
+/* Mobile logo size */
+@media (max-width: 768px) {
+  .site-logo {
+    width: 200px !important;
+    height: auto !important;
+    margin: 0 auto;
+  }
+}
